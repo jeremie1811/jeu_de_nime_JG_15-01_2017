@@ -1,0 +1,125 @@
+﻿ALGO jeux_Nime
+//ENTREE tiré un nombre d'allumette 
+//SORTIE Gagné en ne tirant pas la derniere alumette 
+CONST: NBALLUMETTE=21
+       
+VAR: NB:ENTIER     // nb d'allumette 
+     Paquet:ENTIER // le paquet qui a 21 allumette 
+ 
+DEBUT 
+	paquet<-NBALLUMETTE 
+	REPETER 
+	 
+
+		Ecrire"joueur 1 veuiller sasir un nombre" //1,2,3 Tirage ok    //4,5,6,7,etc tirage pas ok
+	        Lire NB //5
+		
+		TANTQUE NB<1 et NB>3 FAIRE 
+		  Ecrire"Le tirage est érroné" 
+ 		  Ecrire"joueur 1 veuiller sasir un nombre" 
+		  Lire NB
+		 FINTANTQUE	
+		
+	        Ecrire" Retirer le nombre d'allumette" ,NB  //21-3=18 OK	//21-4=17 Pas OK
+	        Paquet<-paquet-NB
+		
+
+ 	
+		
+	        Ecrire" joueur 2 veuillez saisire un nombre"	//1,2,3 Tirage ok    //4,5,6,7,etc tirage pas ok
+	        Lire NB
+		TANTQUE NB<1 et NB>3 FAIRE 
+		
+		  Ecrire"Le tirage est érroné" 
+ 		  Ecrire"joueur 1 veuiller sasir un nombre" 
+		  Lire NB
+		 FINTANTQUE	
+
+	        Ecrire" Retirer le nombres de d'allumette" ,NB
+	        Paquet<-paquet-NB     
+	            
+	
+	 
+
+
+                         
+	JUSQU'A paquet=1		      
+	Ecrire" Bravo vous avez gagner"
+FIN.
+	
+
+
+
+
+
+ALGORITHME allumette 2
+//but
+//entree
+//sortie
+CONSTANTE: PAQUET←21
+VARIABLE:cpt,cptj,nombre,aleatoire
+
+DEBUT 
+	aleatoire(3)//cette methode retourne un etier entre 1 et 3, celle-ci est simulee
+	nombre←paquet
+	cptj←2
+
+		REPETER
+
+			SI cptj MOD 2=0 ALORS
+			ECRIRE "joueurs 1"
+			FINSI
+				ECRIRE"veuillez entrez le nombre d'allumette que vous retirez" 
+				LIRE nombre 
+
+				SI nombre>=1 ET nombre <=3 ALORS
+					cptj←cptj+1
+					cpt←cpt-nombre 
+				
+
+				SINON 
+					ECRIRE " veuillez entrez un nombre valide, entre 1 et 3"
+
+					
+
+				FINSI
+
+
+			SI cptj MOD 2=1 ALORS 
+			ECRIRE "l'ordinateur joue"
+
+				SI aleatoire>=1 ET aleatoire <=3 ALORS
+					cptj←cptj+1
+					cpt←cpt-aleatoire
+					ECRIRE cpt 
+						
+					SINON 
+						ECRIRE "Erreur de l'ordinateur, il va tenter de rentrer un nombre entre 1 et 3 "
+
+
+				
+				FINSI 
+
+				
+			 
+			FINSI
+
+				//quand l'ordinateur il faut cpt<-cpt-aleatoire si alétoire valide
+
+		JUSQUA cpt<=1
+					
+						SI cptj MOD2=0  ALORS
+
+
+						ECRIRE "Dommage l'ordinateur a gagner"
+
+						SINON 
+						ECRIRE "felicitation vous avez gagner"
+
+
+						FINSI
+
+					
+
+FIN
+
